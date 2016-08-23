@@ -5,9 +5,9 @@
 }
 </style>
 <div class="row text-center">
-  <h2>España</h2>
+  <h2 id="countryName"></h2>
   <div class="col-xs-offset-3 col-xs-6">
-    <img src="img/countries/spain.svg" class="img-responsive img-circle col-centered" id="country" alt="Cinque Terre">
+    <img src="" class="img-responsive img-circle col-centered" id="countryImage" alt="Country flag">
   </div>
 </div>
 <br>
@@ -17,7 +17,8 @@
 <button type="button" class="btn-warning  btn-lg btn-block">Madrid</button>
 <button type="button" class="btn-error  btn-lg btn-block">Daka</button>
 <script>
-// $( "#playButton" ).click(function() {
-// $( "#container-0" ).load( "prueba2.html" );
-// });
+jQuery.getJSON("json/countryCapital.json", function(data){
+  $("#countryImage").attr("src", "img/flags/"+ data.countries[0].abreviature.toLowerCase() + ".png");
+  $("#countryName").text(data.countries[0].name);
+});
 </script>
